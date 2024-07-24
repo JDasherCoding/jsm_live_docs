@@ -1,10 +1,10 @@
 import AddDocumentBtn from "@/components/AddDocumentBtn";
+import { DeleteModal } from "@/components/DeleteModal";
 import Header from "@/components/Header";
 import { getDocuments } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
-import { create } from "domain";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -60,7 +60,8 @@ const page = async () => {
 										</p>
 									</div>
 								</Link>
-								{/* // TODO Delete Button  */}
+
+								<DeleteModal roomId={id} />
 							</li>
 						))}
 					</ul>
